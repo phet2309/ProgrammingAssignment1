@@ -59,7 +59,8 @@ public class SQSService {
                     .messageGroupId("CarText")
                     .messageBody(imgKey)
                     .build();
-            sqsClient.sendMessage(sendMsgRequest);
+            String messageId = sqsClient.sendMessage(sendMsgRequest).sequenceNumber();
+            log.info("Sequence number of the message: {}" , messageId);
             return true;
         } catch (Exception e) {
             log.info(String.valueOf(e));

@@ -32,7 +32,7 @@ public class TextDetectionService {
 
         DetectTextResponse textResponse = rekognitionClient.detectText(textRequest);
         List<TextDetection> textCollection = textResponse.textDetections();
-        log.info("Detected text: {}", textCollection.size());
+        log.info("Detected text from image {}: {}", imgKey, textCollection.size());
 
         StringBuilder s = new StringBuilder();
         for (TextDetection text: textCollection) {
