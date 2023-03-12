@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.pa1.text-detection-app</groupId>
 	<artifactId>text-detection-app</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.3-SNAPSHOT</version>
 	<name>text-detection-app</name>
 	<description>Text detection from the image</description>
 	<properties>

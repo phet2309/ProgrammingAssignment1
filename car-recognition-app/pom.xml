@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.pa1</groupId>
 	<artifactId>car-recognition-app</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.0.2-SNAPSHOT</version>
 	<name>car-recognition-app</name>
 	<description>EC2 instance for car recognition</description>
 	<properties>

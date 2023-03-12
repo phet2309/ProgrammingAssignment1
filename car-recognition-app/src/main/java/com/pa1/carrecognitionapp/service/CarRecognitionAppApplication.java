@@ -1,7 +1,6 @@
 package com.pa1.carrecognitionapp.service;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import software.amazon.awssdk.services.rekognition.RekognitionClient;
@@ -32,6 +31,7 @@ public class CarRecognitionAppApplication {
 		RekognitionService rekognitionService = new RekognitionService();
 		RekognitionClient rekognitionClient = rekognitionService.getRekognitionClient();
 
+		log.info("queueUrl: {}", queueUrl);
 		for(S3Object img : images) {
 			if (rekognitionService.recognize(rekognitionClient, img, bucketName)) {
 				log.info("The image has car label with required confidence: {}", img.key());

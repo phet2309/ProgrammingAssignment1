@@ -41,10 +41,10 @@ public class TextDetectionAppApplication {
 
 		log.info("queueUrl: {}", queueUrl);
 		Map<String, String> mp = new HashMap<>();
-		while(!queueEnd) {
+		while(true) {
 			Message message = sqsService.receiveMessage(sqsClient, queueUrl);
 			if(message==null) {
-				Thread.sleep(10000);
+				Thread.sleep(1000);
 				continue;
 			}
 
@@ -54,7 +54,6 @@ public class TextDetectionAppApplication {
 					.build();
 			sqsClient.deleteMessage(deleteMessageRequest);
 			if(message.body().equals("-1")) {
-				queueEnd = true;
 				break;
 			}  else {
 				Image image = s3Service.s3FetchByName(message.body());
